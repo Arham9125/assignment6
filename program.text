@@ -1,0 +1,153 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        
+        backgroundColor: Colors.grey[900],
+        body: Center(
+          
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 50, right: 50, top: 20, bottom: 20),
+
+                
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              
+              children: [
+                const CircleAvatar(
+                  radius: 70,
+                  backgroundImage: AssetImage("assest/pic/main.png"),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  "CARROM TRIBE",
+                  style: GoogleFonts.lato(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  "Welcome !!",
+                  style: GoogleFonts.lato(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.yellow[300],
+                  ),
+                  height: 50,
+                  width: 500,
+                  child: Center(
+                    child: Text(
+                      "Upgrade Your Access",
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                profile(
+                    text: "JOIN IN",
+                    icon: Icons.shopping_bag,
+                    arrowshown: true),
+                const SizedBox(height: 5),
+                profile(
+                    text: "SIGNUP",
+                    icon: Icons.help_center_outlined,
+                    arrowshown: true),
+                const SizedBox(height: 5),
+                profile(
+                    text: "MEMBERSHIP",
+                    icon: Icons.card_giftcard,
+                    arrowshown: true),
+                const SizedBox(height: 5),
+                profile(
+                    text: "GUIDELINE",
+                    icon: Icons.arrow_back_ios_new_outlined,
+                    arrowshown: false),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "LOGOUT",
+                      style: GoogleFonts.lato(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ))
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+class profile extends StatelessWidget {
+  profile({required this.text, required this.icon, required this.arrowshown});
+  final String text;
+  final IconData icon;
+  final bool arrowshown;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.grey,
+      ),
+      height: 50,
+      width: 500,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 14),
+              child: Icon(
+                icon,
+                size: 35,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(width: 20),
+            Text(
+              "$text",
+              style: GoogleFonts.lato(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            arrowshown
+                ? const Icon(
+                    Icons.arrow_forward,
+                    size: 35,
+                  )
+                : Container(),
+          ],
+        ),
+      ),
+    );
+  }
+}
